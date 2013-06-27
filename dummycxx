@@ -1,0 +1,31 @@
+#!/bin/sh
+# dummy 'compiler' to just pass the 'gcc' test
+ofile="a.out"
+while getopts "cgo:" opt ; do
+	echo found opt $opt
+	case $opt in
+		o)
+		ofile="$OPTARG"
+		o_seen=yes
+		shift
+		;;
+		c)
+		c_seen=yes
+		;;
+		g)
+		;;
+		*)
+			exit 1;
+		;;
+	esac
+	shift
+	OPTIND=1
+done
+if [ x"${c_seen}" = "xyes" ] && [ ! x"${o_seen}" = "xyes" ] ; then
+	srcnam=`basename $1 | sed -e 's/[.][^.]*$//g'`
+	ofile="${srcnam}.o"
+fi
+echo '#!/bin/sh'                > $ofile
+echo 'echo "dummy compilation"' >> $ofile
+chmod a+x $ofile
+

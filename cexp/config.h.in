@@ -1,0 +1,127 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* use RTEMS notepad $withval for storing context info */
+#undef CEXP_RTEMS_NOTEPAD
+
+/* Size of text region for loaded modules */
+#undef CEXP_TEXT_REGION_SIZE
+
+/* do we have the bfd internal dis-asm.h header */
+#undef HAVE_BFD_DISASSEMBLER
+
+/* do we have the bfd internal elf-bfd.h header */
+#undef HAVE_ELF_BFD_H
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the `rcmd' function. */
+#undef HAVE_RCMD
+
+/* If we found RTEMS headers; otherwise ugly hacks will be used! */
+#undef HAVE_RTEMS_H
+
+/* If sigaction supports a siginfo_t arg */
+#undef HAVE_SIGINFO
+
+/* If the OS uses signals to indicate faults etc. */
+#undef HAVE_SIGNALS
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/mman.h> header file. */
+#undef HAVE_SYS_MMAN_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* the tecla (reentrant line editor) library */
+#undef HAVE_TECLA
+
+/* */
+#undef HAVE_TYPE_UINT32_T
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to 1 if you have the `vsnprintf' function. */
+#undef HAVE_VSNPRINTF
+
+
+/* Disable thread protection on OS other than RTEMS */
+#ifndef __rtems__
+#define NO_THREAD_PROTECTION
+#endif
+
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+
+#ifndef RTEMS_VERSION_LATER_THAN
+#define RTEMS_VERSION_LATER_THAN(ma,mi,re) \
+	(    __RTEMS_MAJOR__  > (ma)	\
+	 || (__RTEMS_MAJOR__ == (ma) && __RTEMS_MINOR__  > (mi))	\
+	 || (__RTEMS_MAJOR__ == (ma) && __RTEMS_MINOR__ == (mi) && __RTEMS_REVISION__ > (re)) \
+    )
+#endif
+#ifndef RTEMS_VERSION_ATLEAST
+#define RTEMS_VERSION_ATLEAST(ma,mi,re) \
+	(    __RTEMS_MAJOR__  > (ma)	\
+	|| (__RTEMS_MAJOR__ == (ma) && __RTEMS_MINOR__  > (mi))	\
+	|| (__RTEMS_MAJOR__ == (ma) && __RTEMS_MINOR__ == (mi) && __RTEMS_REVISION__ >= (re)) \
+	)
+#endif
+	            	
+
+/* The size of `unsigned int', as computed by sizeof. */
+#undef SIZEOF_UNSIGNED_INT
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* whether to use the GNU readline library */
+#undef USE_GNU_READLINE
+
+/* whether we configured the run-time loader */
+#undef USE_LOADER
+
+/* should we use our "poor man's BFD implentation?" */
+#undef USE_PMBFD
+
+/* Version number of package */
+#undef VERSION
+
+/* --enable-YYDEBUG whether to enable YYDEBUG */
+#undef YYDEBUG

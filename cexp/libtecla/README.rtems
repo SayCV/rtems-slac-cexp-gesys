@@ -1,0 +1,66 @@
+The libtecla contained in this directory differs from the
+original version:
+
+T.S, 2008/04/16: added support for multilibs. I retired the old Makefile.in
+                 and created a 'Makefile.am' instead which can be used with
+				 automake.
+				 HOWEVER:
+				 	- shared libraries are not supported.
+					- xxx_MANDIR, xxx_MANEXT defined in 'configure.in' are 
+					  ignored. The manpages are installed in the subdirectories
+					  defined in the Makefile.am (due to automake shortcomings).
+
+
+- RTEMS port (look for the #ifdef __rtems__ symbols)
+- On RTEMS, we always and exclusively use the reentrant library version
+- Shared libraries are disabled for host builds (to avoid LD_LIBRARY_PATH
+  problems for people building the CEXP demo)
+- Implemented a hack to either temporarily restore OPOST processing
+  while getline is blocking for input or to enable it permanently.
+  Otherwise we get no '\r's from other threads printing to the console.
+
+- Eric Norum's comments on termcap (non) reentrancy:
+
+	Eric Norum wrote:
+		>
+		> On Nov 7, 2006, at 2:26 PM, Till Straumann wrote:
+		>
+		>> Eric Norum wrote:
+		>>> Another question about cexp.  You mention that you use tecla rather
+        >>> than readline because the former is reentrant.  I'm not sure that this
+        >>> is true, since both packages use termcap -- which I believe is non-reentrant.
+        >>> Am I missing something?
+		>>> --Eric Norum <norume@aps.anl.gov>
+		>>> Advanced Photon Source
+		>>> Argonne National Laboratory
+		>>> (630) 252-4793
+		>>>
+		>>>
+		>> It can be used with termcap, terminfo
+		>> or non of them all in which case it falls back on VT100.
+		>> That's what I let it do.
+		>>
+		>> What aspect of termcap is non-reentrant? Maybe I'm naive
+		>> but I thought it's just used to lookup strings in a database
+		>> and for writing them to a terminal (and I wouldn't expect
+				>> two instances of libtecla to control the same terminal but
+				>> rather different ones, e.g., the console and a telnet-pty).
+		>
+		> The one I see right away is in lib_tputs.c There's a function
+        > pointer my_outch which gets modified in t_puts and then used in
+        > delay_output.  Thus two threads active in tputs at the same time
+        > is going to be bad news!  I guess if there's no padding then things
+        > might work since there would be no calls to delay_output, but I'm
+        > still a little leery.  Why they didn't just pass 'outc' as an
+        > argument to delay_output is a puzzle to me.
+		> --Eric Norum <norume@aps.anl.gov>
+		> Advanced Photon Source
+		> Argonne National Laboratory
+		> (630) 252-4793
+		I see. So I guess if you really want to use curses with libtecla then
+		getline.c:tputs_fp should be made a rtems task variable :-(
+
+				OTOH, I really don't see the need for terminfo or termcap.
+				ansi vt100 should be just fine...
+
+				T.

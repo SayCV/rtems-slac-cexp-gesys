@@ -1,0 +1,130 @@
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Override system clock rate defined in 'config.c' */
+#undef CONFIGURE_MICROSECONDS_PER_TICK
+
+/* Whether BSP_commandline_string is declared in <bsp.h> */
+#undef DECL_BSP_COMMANDLINE_STRING
+
+/* Define to 1 if you have the `bsp_cmdline' function. */
+#undef HAVE_BSP_CMDLINE
+
+/* Define to 1 if you have the `BSP_commandline_string' function. */
+#undef HAVE_BSP_COMMANDLINE_STRING
+
+/* Whether cexpSetPrompt is available from <cexp.h> */
+#undef HAVE_CEXP_SET_PROMPT
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* if we should use the bsp extension library */
+#undef HAVE_LIBBSPEXT
+
+/* If we should use the netboot library */
+#undef HAVE_LIBNETBOOT
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* whether we have <pcibios.h> and need to initialize */
+#undef HAVE_PCIBIOS
+
+/* Define to 1 if you have the `rtems_bsdnet_loopattach' function. */
+#undef HAVE_RTEMS_BSDNET_LOOPATTACH
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* If we should use the tecla line editor */
+#undef HAVE_TECLA
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Link a few NIC drivers and probe at run-time */
+#undef MULTI_NETDRIVER
+
+/* Whether to use NFS */
+#undef NFS_SUPPORT
+
+/* NIC attach function we should use */
+#undef NIC_ATTACH
+
+/* NIC device name we should use */
+#undef NIC_NAME
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Whether to build-in support for loading a symbol table via RSH */
+#undef RSH_SUPPORT
+
+/* The amount of memory in the first 32MB area to set aside for loadable
+   module's text (PPC only) */
+#undef RTEMS_CEXP_TEXT_REGION_SIZE
+
+
+#ifndef RTEMS_VERSION_LATER_THAN
+#define RTEMS_VERSION_LATER_THAN(ma,mi,re) \
+	(    __RTEMS_MAJOR__  > (ma)	\
+	 || (__RTEMS_MAJOR__ == (ma) && __RTEMS_MINOR__  > (mi))	\
+	 || (__RTEMS_MAJOR__ == (ma) && __RTEMS_MINOR__ == (mi) && __RTEMS_REVISION__ > (re)) \
+    )
+#endif
+#ifndef RTEMS_VERSION_ATLEAST
+#define RTEMS_VERSION_ATLEAST(ma,mi,re) \
+	(    __RTEMS_MAJOR__  > (ma)	\
+	|| (__RTEMS_MAJOR__ == (ma) && __RTEMS_MINOR__  > (mi))	\
+	|| (__RTEMS_MAJOR__ == (ma) && __RTEMS_MINOR__ == (mi) && __RTEMS_REVISION__ >= (re)) \
+	)
+#endif
+	            	
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Whether to build-in support for the TFTP file system */
+#undef TFTP_SUPPORT
+
+/* Whether to use unified area for malloc heap and RTEMS workspace */
+#undef USE_UNIFIED_WORKAREA
+
+/* Version number of package */
+#undef VERSION
+
+/* Use/install a special line-discipline to find terminal window size */
+#undef WINS_LINE_DISC
